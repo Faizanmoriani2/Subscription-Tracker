@@ -31,7 +31,7 @@ const subscriptionSchema = new mongoose.Schema({
     paymentMethod: {
         type: String,
         required: true,
-        trime: true,
+        trim: true,
     },
     status: {
         type: String,
@@ -42,7 +42,7 @@ const subscriptionSchema = new mongoose.Schema({
         type: Date,
         required: true,
         validate: {
-            validator: () => value <= new Date(),
+            validator: (value) => value <= new Date(),
             message: "Start Date must be in past",
         }
     },
@@ -55,7 +55,7 @@ const subscriptionSchema = new mongoose.Schema({
             message: "Renewal date must be after the start date"
         }
     },
-    User: {
+    user: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User',
         required: true,
